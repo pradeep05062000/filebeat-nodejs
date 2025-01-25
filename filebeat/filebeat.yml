@@ -1,0 +1,18 @@
+filebeat.inputs:
+  - type: log
+    scan_frequency: 1s
+    enabled: true
+    paths:
+      - /src/logs/*.log # Match log files
+    fields:
+      application: node-logger
+    
+
+# output.console:
+#   enabled: true
+
+# Uncomment and configure to use Logstash or Elasticsearch:
+# output.elasticsearch:
+#   hosts: ["http://elasticsearch:9200"]
+output.logstash:
+  hosts: ["192.168.29.29:5044"]
